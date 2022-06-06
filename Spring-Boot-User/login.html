@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+
+    *{
+        box-sizing: border-box;
+    }
+    body {font-family: Courier New, Courier New, sans-serif;}
+
+    input[type=text], input[type=password] {
+        background-color: #dedde5;
+        width: 350px;
+        padding: 20px 25px;
+        margin: 20px;
+        text-align: left;
+        display: inline-block;
+        border: 1px solid #1a4c53;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #281c96;
+        color: white;
+        padding: 20px 25px;
+        margin: 0 auto;
+        border: none;
+        cursor: pointer;
+        width: 150px;
+        box-shadow: 0 9px #3a3737;
+        border-radius: 13px;
+        display: flex;
+        justify-content: center;
+    }
+
+    button:hover {
+        background-color: #533fd0;
+        opacity: 0.8;
+    }
+
+    button:active {
+        background-color: #66608d;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+    .container {
+        width: 450px;
+        padding: 12px;
+        border-radius: 4px;
+        background-color: #a19dc0;
+    }
+
+    .user {
+        width: 475px;
+        padding: 12px;
+        border-radius: 4px;
+        background-color: #09012c;
+        margin: 10% auto;
+    }
+
+</style>
+
+<body>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <form class="user">
+        <div class="container">
+            <div>
+                <label><b>Email</b></label>
+            </div>
+            <div>
+                <input type="text" id="mail" placeholder="E-mail"required>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <label><b>Password</b></label>
+            </div>
+            <div>
+                <input type="text" id="pswrd" placeholder="Password"required>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <div id="result"></div>
+                <p>Select a number:</p>
+                <input type="radio" name="element" value="1">
+                <label>1</label>
+                <input type="radio" name="element" value="2">
+                <label>2</label>
+                <input type="radio" name="element" value="3">
+                <label>3</label>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="result2"></div>
+            <p>Select: User mode</p>
+            <input type="radio"value="User" id="1" value="User">
+            <label>User</label>
+            <input type="radio"value="Admin" id="2" value="Admin">
+            <label>Admin</label>
+            <input type="radio"value="Moderator" id="3" value="Moderator">
+            <label>Moderator</label>
+        </div>
+
+        <div class="container">
+            <div>
+                <button type="submit" onclick="loginFunc();findSelected();findAll()">Login</button>
+            </div>
+        </div>
+
+    </form>
+</head>
+
+<script>
+    function loginFunc() {
+        var mail = document.getElementById("mail").value;
+        var password = document.getElementById("pswrd").value;
+        alert("E-mail is: " + mail + "\nPassword is: " + password)
+    }
+
+    function findSelected() {
+        var ele = document.getElementsByName('element');
+        var chosen;
+        for(i = 0; i < ele.length; i++) {
+            if(ele[i].checked)
+                chosen= ele[i].value;
+        }
+        alert("Selected number is: " + chosen);
+    }
+
+    function findAll() {
+        var a = document.getElementById("1");
+        var b = document.getElementById("2");
+        var c = document.getElementById("3");
+        var list = "";
+        if(a.checked)
+            list += a.value + "\n";
+        if(b.checked)
+            list += b.value + "\n";
+        if(c.checked)
+            list += c.value + "\n";
+        alert("Selected mode(s) are: " + list);
+    }
+</script>
+
+</body>
+</html>
